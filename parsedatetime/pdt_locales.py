@@ -438,3 +438,106 @@ class pdtLocale_de(pdtLocale_base):
         self.re_sources['heute nacht']    = { 'hr': 21, 'mn': 0, 'sec': 0 }
         self.re_sources['feierabend']     = { 'hr': 17, 'mn': 0, 'sec': 0 }
 
+class pdtLocale_fr(pdtLocale_base):
+    """
+    fr_FR Locale constants
+    """
+    def __init__(self):
+        super( pdtLocale_fr, self ).__init__()
+
+        self.localeID      = 'fr_FR'   # don't use a unicode string
+        self.dateSep       = [ '/' ]
+        self.timeSep       = [ ':' ]
+        self.meridian      = [ ]
+        self.usesMeridian  = False
+        self.uses24        = True
+
+        self.Weekdays      = [ 'lundi', 'mardi', 'mercredi',
+                               'jeudi', 'vendredi', 'samedi', 'dimanche',
+                             ]
+        self.shortWeekdays = [ 'lu', 'ma', 'me',
+                               'je', 've', 'sa', 'di',
+                             ]
+        self.Months        = [ 'janvier',  'f\xe9vrier',  'mars',
+                               'avril',   'mai',      'juin',
+                               'juillet',    'ao\xfbt',   'septembre',
+                               'octobre', 'novembre', 'd\xe9cembre',
+                             ]
+        self.shortMonths   = [ 'jan', 'f\xe9b', 'mar',
+                               'avr', 'mai', 'juin',
+                               'juil', 'au\xfb', 'sep',
+                               'oct', 'nov', 'd\xe9c',
+                             ]
+        self.dateFormats['full']   = 'EEEE, d. MMMM yyyy'
+        self.dateFormats['long']   = 'd MMMM yyyy'
+        self.dateFormats['medium'] = 'dd/MM/yyyy'
+        self.dateFormats['short']  = 'dd/MM/yy'
+
+        self.timeFormats['full']   = 'HH:mm:ss v'
+        self.timeFormats['long']   = 'HH:mm:ss z'
+        self.timeFormats['medium'] = 'HH:mm:ss'
+        self.timeFormats['short']  = 'HH:mm'
+
+        self.dp_order = [ 'd', 'm', 'y' ]
+
+        self.units['seconds'] = [ 'secondes', 'sec',  's' ]
+        self.units['minutes'] = [ 'minutes',  'min' , 'm' ]
+        self.units['hours']   = [ 'heures',   'h' ]
+        self.units['days']    = [ 'jours',    'j' ]
+        self.units['weeks']   = [ 'semaines',           'sem' ]
+        self.units['months']  = [ 'mois' ]  #the short version would be a capital M,
+                                                       #as I understand it we can't distinguis
+                                                       #between m for minutes and M for months.
+        self.units['years']   = [ 'ann\xe9e', 'ann\xe9es' ]
+
+        self.re_values['specials']       = 'le|du|au|\xe0'
+        self.re_values['timeseperator']  = ':'
+        self.re_values['rangeseperator'] = '-'
+        self.re_values['daysuffix']      = 'er'
+        self.re_values['qunits']         = 'h|m|s|t|w|m|j'
+        self.re_values['now']            = [ 'maintenant' ]
+
+          # Used to adjust the returned date before/after the source
+          #still looking for insight on how to translate all of them to german.
+        # self.Modifiers['from']        =  1
+        self.Modifiers['avant']      = -1
+        self.Modifiers['apr\xe8']       =  1
+        # self.Modifiers['vergangener'] = -1
+        # self.Modifiers['vorheriger']  = -1
+        # self.Modifiers['prev']        = -1
+        # self.Modifiers['letzter']     = -1
+        self.Modifiers['prochain'] =  1
+        self.Modifiers['ce']      =  0
+        # self.Modifiers['previous']    = -1
+        # self.Modifiers['in a']        =  2
+        # self.Modifiers['end of']      =  0
+        # self.Modifiers['eod']         =  0
+        # self.Modifiers['eo']          =  0
+
+          #morgen/abermorgen does not work, see http://code.google.com/p/parsedatetime/issues/detail?id=19
+        self.dayOffsets['demain']        =  1
+        self.dayOffsets['aujourd\'hui']         =  0
+        self.dayOffsets['hier']       = -1
+        self.dayOffsets['avant-hier']    = -2
+        self.dayOffsets['apr\xe9s-demain'] =  2
+
+          # special day and/or times, i.e. lunch, noon, evening
+          # each element in the dictionary is a dictionary that is used
+          # to fill in any value to be replace - the current date/time will
+          # already have been populated by the method buildSources
+        # self.re_sources['mittag']         = { 'hr': 12, 'mn': 0, 'sec': 0 }
+        # self.re_sources['mittags']        = { 'hr': 12, 'mn': 0, 'sec': 0 }
+        # self.re_sources['mittagessen']    = { 'hr': 12, 'mn': 0, 'sec': 0 }
+        # self.re_sources['morgen']         = { 'hr':  6, 'mn': 0, 'sec': 0 }
+        # self.re_sources['morgens']        = { 'hr':  6, 'mn': 0, 'sec': 0 }
+        # self.re_sources['fr\e4hst\xe4ck'] = { 'hr':  8, 'mn': 0, 'sec': 0 }
+        # self.re_sources['abendessen']     = { 'hr': 19, 'mn': 0, 'sec': 0 }
+        # self.re_sources['abend']          = { 'hr': 18, 'mn': 0, 'sec': 0 }
+        # self.re_sources['abends']         = { 'hr': 18, 'mn': 0, 'sec': 0 }
+        # self.re_sources['mitternacht']    = { 'hr':  0, 'mn': 0, 'sec': 0 }
+        # self.re_sources['nacht']          = { 'hr': 21, 'mn': 0, 'sec': 0 }
+        # self.re_sources['nachts']         = { 'hr': 21, 'mn': 0, 'sec': 0 }
+        # self.re_sources['heute abend']    = { 'hr': 21, 'mn': 0, 'sec': 0 }
+        # self.re_sources['heute nacht']    = { 'hr': 21, 'mn': 0, 'sec': 0 }
+        # self.re_sources['feierabend']     = { 'hr': 17, 'mn': 0, 'sec': 0 }
+

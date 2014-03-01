@@ -50,6 +50,7 @@ pdtLocales = { 'icu':   pdt_locales.pdtLocale_icu,
                'en_AU': pdt_locales.pdtLocale_au,
                'es_ES': pdt_locales.pdtLocale_es,
                'de_DE': pdt_locales.pdtLocale_de,
+               'fr_FR': pdt_locales.pdtLocale_fr,
              }
 
 # Copied from feedparser.py
